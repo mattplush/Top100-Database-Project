@@ -1,0 +1,72 @@
+2)
+
+Show all distinct tracks whose position data is in 1970 (not the track year, but by position
+dates), which, at any time, occupied the #10 chart position (not necessarily the track’s highest
+position reached). Show the song title and artist, ordered by title (43 rows).
+
+
+----------- QUERY ----------
+
+
+SELECT 
+	DISTINCT tr_title AS Title,
+  	person AS Artist
+FROM 
+	tracks, people, position
+WHERE 
+	tr_artist_id = p_id AND 
+    	tr_id = po_track_id AND 
+    	po_date >= '1970-01-01' AND 
+    	po_date < '1971-01-01' AND 
+    	po_pos = 10
+ORDER BY 
+	Title
+
+
+----------- TABLE ----------
+
+
+        Title                                             Artist
+1       (I Know) I'm Losing You                           Rare Earth
+2       25 Or 6 To 4                                      Chicago
+3       Ain't No Mountain High Enough                     Diana Ross
+4       All Right Now                                     Free
+5       Arizona                                           Mark Lindsay
+6       Ball Of Confusion (That's What The World Is Today)Temptations, The
+7       Come And Get It                                   Badfinger
+8       Didn't I (Blow Your Mind This Time)               Delfonics, The
+9       Easy Come, Easy Go                                Bobby Sherman
+10      Evil Ways                                         Santana
+11      Fire And Rain                                     James Taylor
+12      Get Ready                                         Rare Earth
+13      Green-Eyed Lady                                   Sugarloaf
+14      He Ain't Heavy, He's My Brother                   Hollies, The
+15      Hitchin' A Ride                                   Vanity Fare
+16      I'll Never Fall In Love Again                     Dionne Warwick
+17      It Don't Matter To Me                             Bread
+18      It's Only Make Believe                            Glen Campbell
+19      Jam Up Jelly Tight                                Tommy Roe
+20      Jingle Jangle                                     Archies, The
+21      La La La (If I Had You)                           Bobby Sherman
+22      Lay Down (Candles In The Rain)                    Melanie
+23      Leaving on A Jet Plane                            Peter, Paul and Mary
+24      Let It Be                                         Beatles, The
+25      Lola (Studio)                                     Kinks, The
+26      Lookin' Out My Back Door                          Creedence Clearwater Revival
+27      Make It With You                                  Bread
+28      Midnight Cowboy                                   Ferrante and Teicher
+29      Montego Bay                                       Bobby Bloom
+30      No Matter What                                    Badfinger
+31      O-o-h Child                                       Five Stairsteps, The
+32      Rainy Night In Georgia                            Brook Benton
+33      Reflections Of My Life                            Marmalade, The
+34      Share The Land                                    Guess Who, The
+35      Spill The Wine                                    Eric Burdon and War
+36      The Long And Winding Road                         Beatles, The
+37      The Love You Save                                 Jackson 5
+38      The Rapper                                        Jaggerz, The
+39      Tighter, Tighter                                  Alive and Kicking
+40      Turn Back The Hands Of Time                       Tyrone Davis
+41      Up The Ladder To The Roof                         Supremes, The
+42      Venus                                             Shocking Blue, The
+43      Which Way You Goin' Billy?                        Poppy Family, The

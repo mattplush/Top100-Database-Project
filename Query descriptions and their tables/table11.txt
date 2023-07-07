@@ -1,0 +1,47 @@
+11)
+ 
+Your choice! Come up a question similar to those above, but not simply changing a
+detail, like the year... that’s too easy. Look for some data that can be solved by a query on
+your normalized database, that contains a result which (a) requires the joining of two or more
+tables, and (b) is sorted on some field or fields, and (c) is not identical/similar to a Graduate
+query below. Be creative! This one is worth extra points, see the rubric!
+
+
+----------- DESCRIPTION ----------
+
+This query returns all artists who have performed 10 or more number 1 songs. The Beatles come in
+first with 59 number ones.
+
+----------- QUERY ----------
+
+
+SELECT
+    	people.person AS Artist,
+    	COUNT(*) NumberOnes
+FROM
+    	tracks, position, people
+WHERE
+	tracks.tr_id = position.po_track_id AND
+    	tracks.tr_artist_id = people.p_id AND
+	position.po_pos = 1
+GROUP BY
+    	tracks.tr_artist_id
+HAVING
+    	COUNT(*) >= 10
+ORDER BY
+  	NumberOnes DESC;
+
+
+----------- TABLE ----------
+
+
+Artist                        NumberOnes
+Beatles, The                  59
+Supremes, The                 19
+Rolling Stones, The           16
+Monkees, The                  12
+Roberta Flack                 12
+Simon and Garfunkel           11
+Elton John                    11
+Carole King                   10
+Jackson 5                     10

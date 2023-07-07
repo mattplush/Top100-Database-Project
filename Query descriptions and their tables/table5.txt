@@ -1,0 +1,70 @@
+5)
+ 
+What artists also wrote the track and had their peak position in the top 20 for track year =
+1973? Show track title, artist name, highest position, ordered by artist name. Should yield 40
+rows.
+
+
+----------- QUERY ----------
+
+
+SELECT 
+	tr_title AS Title,
+    	person AS Artist,
+    	tr_peakpos AS HighestPosition
+FROM 
+	tracks, wrote, people
+WHERE 
+	tr_id = wr_track_id AND 
+	wr_p_id = p_id AND 
+	tr_artist_id = p_id AND 
+	tr_year = '1973' AND 
+	tr_peakpos <= 20
+ORDER BY 
+	Artist;
+
+
+----------- TABLE ----------
+
+
+        Title                                             Artist                        HighestPosition
+1       Call Me (Come Back Home)                          Al Green                      10
+2       Here I Am (Come And Take Me)                      Al Green                      10
+3       My Maria                                          B.W. Stevenson                9
+4       I'm Gonna Love You Just A Little More Baby        Barry White                   3
+5       Will It Go Round In Circles                       Billy Preston                 1
+6       Space Race                                        Billy Preston                 4
+7       Knockin' On Heaven's Door                         Bob Dylan                     12
+8       You're So Vain                                    Carly Simon                   1
+9       The Right Thing To Do                             Carly Simon                   17
+10      Sitting                                           Cat Stevens                   16
+11      Uneasy Rider                                      Charlie Daniels               9
+12      Superfly                                          Curtis Mayfield               8
+13      Space Oddity                                      David Bowie                   15
+14      Funny Face                                        Donna Fargo                   5
+15      Frankenstein                                      Edgar Winter                  1
+16      Crocodile Rock                                    Elton John                    1
+17      Saturday Night's Alright For Fighting             Elton John                    12
+18      Goodbye Yellow Brick Road                         Elton John                    2
+19      Daniel                                            Elton John                    2
+20      Give Me Love (Give Me Peace On Earth)             George Harrison               1
+21      Get Down                                          Gilbert O'Sullivan            7
+22      Out Of The Question                               Gilbert O'Sullivan            17
+23      Don't Let Me Be Lonely Tonight                    James Taylor                  14
+24      Time In A Bottle                                  Jim Croce                     1
+25      Bad, Bad Leroy Brown                              Jim Croce                     1
+26      Theme From Cleopatra Jones""                      Joe Simon                     18
+27      Rocky Mountain High                               John Denver                   9
+28      Mind Games                                        John Lennon                   18
+29      Your Mama Don't Dance                             Kenny Loggins                 4
+30      Why Me                                            Kris Kristofferson            16
+31      Walk On The Wild Side                             Lou Reed                      16
+32      Dead Skunk                                        Loudon Wainwright III         16
+33      Let's Get It On                                   Marvin Gaye                   1
+34      Trouble Man                                       Marvin Gaye                   7
+35      Loves Me Like A Rock                              Paul Simon                    2
+36      Kodachrome                                        Paul Simon                    2
+37      Higher Ground                                     Stevie Wonder                 4
+38      Superstition                                      Stevie Wonder                 1
+39      You Are The Sunshine Of My Life                   Stevie Wonder                 1
+40      Hello It's Me                                     Todd Rundgren                 5

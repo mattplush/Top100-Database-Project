@@ -1,0 +1,128 @@
+1)
+
+Show the entire 100 entries in the chart for position date September 7, 1968. The resulting
+table should have columns: Position, Title, Artist, DateEntered, ordered by position. (100 rows)
+
+
+----------- QUERY ----------
+
+
+SELECT 
+	po_pos AS Position,
+	tr_title AS Title,
+	person AS Artist,
+	tr_dateentered AS DateEntered
+FROM 
+	position, tracks, people
+WHERE 
+	po_track_id = tr_id AND 
+	tr_artist_id = p_id AND 
+	po_date = '1968-09-07'
+ORDER BY 
+	Position
+
+
+----------- TABLE ----------
+
+
+Position    Title                                             Artist                                  DateEntered
+1           People Got To Be Free                             Rascals, The                            7/20/1968
+2           Born To Be Wild                                   Steppenwolf                             7/13/1968
+3           Light My Fire                                     Jose Feliciano                          7/27/1968
+4           Harper Valley P.T.A.                              Jeannie C. Riley                        8/24/1968
+5           Hello, I Love You                                 Doors, The                              7/6/1968
+6           The House That Jack Built                         Aretha Franklin                         8/17/1968
+7           1,2,3 Red Light                                   1910 Fruitgum Company, The              7/27/1968
+8           You're All I Need To Get By                       Marvin Gaye                             7/27/1968
+9           I Can't Stop Dancing                              Archie Bell & The Drells                7/20/1968
+10          Stay In My Corner                                 Dells, The                              6/29/1968
+11          Sunshine Of Your Love                             Cream, The                              1/13/1968
+12          You Keep Me Hangin' On                            Vanilla Fudge                           7/13/1968
+13          Hush                                              Deep Purple                             8/17/1968
+14          Turn Around, Look At Me                           Vogues, The                             6/15/1968
+15          Love Makes A Woman                                Barbara Acklin                          7/13/1968
+16          Classical Gas                                     Mason Williams                          6/22/1968
+17          The Fool On The Hill                              Sergio Mendes and Brasil '66            8/10/1968
+18          Slip Away                                         Clarence Carter                         7/13/1968
+19          Journey To The Center Of The Mind                 Amboy Dukes, The                        6/29/1968
+20          Soul-Limbo                                        Booker T. & The MG's                    7/13/1968
+21          Sealed With A Kiss                                Gary Lewis and the Playboys             6/22/1968
+22          Do It Again                                       Beach Boys, The                         7/27/1968
+23          I Say A Little Prayer                             Aretha Franklin                         8/17/1968
+24          Stoned Soul Picnic                                5th Dimension, The                      6/1/1968
+25          Dream A Little Dream Of Me                        Mama Cass                               7/6/1968
+26          Please Return Your Love To Me                     Temptations, The                        8/3/1968
+27          Magic Bus                                         Who, The                                8/10/1968
+28          Mr. Businessman                                   Ray Stevens                             8/3/1968
+29          Tuesday Afternoon (Forever Afternoon)             Moody Blues, The                        7/20/1968
+30          I've Gotta Get A Message To You                   Bee Gees                                8/17/1968
+31          Pictures Of Matchstick Men                        Status Quo, The                         5/18/1968
+32          The Eyes Of A New York Woman                      B.J. Thomas                             6/22/1968
+33          Girls Can't Do What The Guys Do                   Betty Wright                            8/3/1968
+34          I Get The Sweetest Feeling                        Jackie Wilson                           7/20/1968
+35          On The Road Again                                 Canned Heat                             8/10/1968
+36          Down At Lulu's                                    Ohio Express                            8/3/1968
+37          Special Occasion                                  Smokey Robinson                         8/17/1968
+38          Girl Watcher                                      O'Kaysions, The                         8/17/1968
+39          Alice Long (You're Still My Favorite Girlfriend)  Tommy Boyce and Bobby Hart              7/6/1968
+40          I've Never Found A Girl (To Love Me Like You Do)  Eddie Floyd                             7/27/1968
+41          Hurdy Gurdy Man                                   Donovan                                 6/22/1968
+42          I Can't Dance To That Music You're Playin'        Martha Reeves and the Vandellas         8/10/1968
+43          Give A Damn                                       Spanky and Our Gang                     8/3/1968
+44          The Snake                                         Al Wilson                               8/17/1968
+45          Little Green Apples                               O.C. Smith                              8/17/1968
+46          Hip City (Part 2)                                 Jr. Walker and the All Stars            8/10/1968
+47          Brown Eyed Woman                                  Bill Medley                             8/3/1968
+48          Six Man Band                                      Association, The                        8/24/1968
+49          I Wish It Would Rain                              Gladys Knight and the Pips              8/24/1968
+50          Help Yourself                                     Tom Jones                               8/31/1968
+51          Time Has Come Today                               Chambers Brothers, The                  8/10/1968
+52          Who Is Gonna Love Me                              Dionne Warwick                          8/24/1968
+53          Morning Dew                                       Lulu                                    8/10/1968
+54          And Suddenly                                      Cherry People, The                      7/20/1968
+55          Can't You Find Another Way (Of Doing It)          Sam and Dave                            8/3/1968
+56          To Wait For Love                                  Herb Alpert                             8/31/1968
+57          Listen Here                                       Eddie Harris                            6/15/1968
+58          Keep The One You Got                              Joe Tex                                 8/10/1968
+59          Piece Of My Heart                                 Big Brother & the Holding Company       8/31/1968
+60          Say It Loud - I'm Black And I'm Proud (Part 1)    James Brown                             9/7/1968
+61          (The Lament Of The Cherokee) Indian Reservation   Don Fardon                              8/31/1968
+62          My Special Angel                                  Vogues, The                             9/7/1968
+63          Workin' On A Groovy Thing                         Patti Drew                              8/3/1968
+64          Midnight Confessions                              Grass Roots, The                        8/31/1968
+65          The Weight                                        Jackie DeShannon                        8/24/1968
+66          In-A-Gadda-Da-Vida                                Iron Butterfly                          8/24/1968
+67          Barefoot In Baltimore                             Strawberry Alarm Clock                  8/31/1968
+68          I Loved And I Lost                                Impressions, The                        7/20/1968
+69          Down On Me                                        Big Brother & the Holding Company       8/31/1968
+70          (There's) Always Something There To Remind Me     Dionne Warwick                          8/31/1968
+71          Break Your Promise                                Delfonics, The                          8/31/1968
+72          Baby, Come Back                                   Equals, The                             9/7/1968
+73          Fly Me To The Moon                                Bobby Womack                            8/17/1968
+74          Down Here On The Ground                           Lou Rawls                               8/31/1968
+75          Private Number                                    Judy Clay                               8/31/1968
+76          The Weight                                        Band, The                               8/31/1968
+77          Unchained Melody                                  Sweet Inspirations, The                 8/31/1968
+78          My Way Of Life                                    Frank Sinatra                           8/31/1968
+79          Hey, Western Union Man                            Jerry Butler                            8/31/1968
+80          That Kind Of Woman                                Merrilee Rush                           8/31/1968
+81          Fire                                              Crazy World Of Arthur Brown, The        9/7/1968
+82          The Mule                                          James Boys, The                         8/31/1968
+83          Don't Change Your Love                            Five Stairsteps, The                    8/24/1968
+84          Street Fighting Man                               Rolling Stones, The                     9/7/1968
+85          Do What You Gotta Do                              Bobby Vee                               8/31/1968
+86          If Love Is In Your Heart                          Friend and Lover                        8/31/1968
+87          Then You Can Tell Me Goodbye                      Eddy Arnold                             9/7/1968
+88          Shoot'em Up, Baby                                 Andy Kim                                9/7/1968
+89          Naturally Stoned                                  Avant-Garde, The                        8/31/1968
+90          Shape Of Things To Come                           Max Frost and the Troopers              9/7/1968
+91          Light My Fire                                     Doors, The                              8/31/1968
+92          Suzie Q (Part 1)                                  Creedence Clearwater Revival            9/7/1968
+93          The Funky Judge                                   Bull And The Matadors                   8/24/1968
+94          The Woman I Love                                  B.B. King                               8/24/1968
+95          Sally Had A Party                                 Flavor                                  8/3/1968
+96          Help Yourself (To All Of My Lovin')               James and Bobby Purify                  8/31/1968
+97          She's About A Mover                               Otis Clay                               8/24/1968
+98          Since You've Been Gone                            Ramsey Lewis                            8/31/1968
+99          Fool For You                                      Impressions, The                        9/7/1968
+100         Lady Madonna                                      Fats Domino                             9/7/1968

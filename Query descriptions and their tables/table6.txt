@@ -1,0 +1,35 @@
+6)
+ 
+Use an SQL query to ascertain what 2 songs were on the chart the longest in 1972, and
+show the answer and the result table that provided the answer... you need not have SQL print
+the isolated specific answer if the result table shows multiple sorted answers. NOTE: use the
+position dates within 1972, not the track year for this one!
+
+
+----------- QUERY ----------
+
+
+SELECT 
+	tr_title AS Title,
+    	person AS Artist,
+    	COUNT(*) AS Count
+FROM 
+	tracks, position, people
+WHERE 
+	tr_id = po_track_id AND 
+    	tr_artist_id = p_id AND
+    	po_pos <= 100 AND
+    	YEAR(po_date) = 1972
+GROUP BY
+    	tr_title
+ORDER BY 
+	Count DESC
+LIMIT 2;
+
+
+----------- TABLE ----------
+
+
+Title                         Artist      Count
+Nice To Be With You           Gallery     22
+Slippin' Into Darkness        War         22

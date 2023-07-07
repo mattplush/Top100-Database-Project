@@ -1,0 +1,70 @@
+10)
+ 
+What songs having a TRACK YEAR = 1968 got their highest position in the Top 10, but
+never got into the Top 5? Show title, artist, and date peaked, ordered by date peaked, and
+highest position (39 rows)
+
+
+----------- QUERY ----------
+
+
+SELECT 
+	DISTINCT tr_title AS Title,
+    	person AS Artist,
+    	tr_datepeaked AS PeakDate,
+    	tr_peakpos AS HighestPosition
+FROM 
+	tracks, position, people
+WHERE 
+	tr_id = po_track_id AND 
+    	tr_artist_id = p_id AND 
+    	tr_year = '1968' AND 
+    	tr_peakpos <= 10 AND 
+    	tr_peakpos > 5
+ORDER BY 
+	PeakDate;
+
+
+----------- TABLE ----------
+
+
+        Title                                                       Artist                             PeakDate            HighestPosition
+1       If I Could Build My Whole World Around You                  Marvin Gaye                        1/20/1968           10
+2       Nobody But Me                                               Human Beinz, The                   2/3/1968            8
+3       Goin' Out Of My Head/Can't Take My Eyes Off You (Medley)    Lettermen, The                     2/10/1968           7
+4       I Wonder What She's Doing Tonite                            Tommy Boyce and Bobby Hart         2/24/1968           8
+5       Bottle Of Wine                                              Fireballs, The                     3/2/1968            9
+6       Everything That Touches You                                 Association, The                   3/2/1968            10
+7       I Thank You                                                 Sam and Dave                       3/23/1968           9
+8       Mighty Quinn (Quinn The Eskimo)                             Manfred Mann                       4/13/1968           10
+9       The Ballad Of Bonnie And Clyde                              Georgie Fame                       4/13/1968           7
+10      Dance To The Music                                          Sly and the Family Stone           4/20/1968           8
+11      I Got The Feelin'                                           James Brown                        4/27/1968           6
+12      Cowboys To Girls                                            Intruders, The                     5/18/1968           6
+13      Do You Know The Way To San Jose                             Dionne Warwick                     5/18/1968           10
+14      Love Is All Around                                          Troggs, The                        5/18/1968           7
+15      The Unicorn                                                 Irish Rovers, The                  5/25/1968           7
+16      Ain't Nothing Like The Real Thing                           Marvin Gaye                        5/25/1968           8
+17      Shoo-Be-Doo-Be-Doo-Da-Day                                   Stevie Wonder                      5/25/1968           9
+18      Think                                                       Aretha Franklin                    6/15/1968           7
+19      Reach Out Of The Darkness                                   Friend and Lover                   6/22/1968           10
+20      Angel Of The Morning                                        Merrilee Rush                      6/29/1968           7
+21      Here Comes The Judge                                        Shorty Long                        7/6/1968            8
+22      Indian Lake                                                 Cowsills, The                      7/13/1968           10
+23      Turn Around, Look At Me                                     Vogues, The                        8/17/1968           7
+24      I Can't Stop Dancing                                        Archie Bell & The Drells           8/24/1968           9
+25      Stay In My Corner                                           Dells, The                         8/24/1968           10
+26      You Keep Me Hangin' On                                      Vanilla Fudge                      8/31/1968           6
+27      The House That Jack Built                                   Aretha Franklin                    9/7/1968            6
+28      You're All I Need To Get By                                 Marvin Gaye                        9/14/1968           7
+29      The Fool On The Hill                                        Sergio Mendes and Brasil '66       9/28/1968           6
+30      I've Gotta Get A Message To You                             Bee Gees                           9/28/1968           8
+31      Slip Away                                                   Clarence Carter                    10/5/1968           6
+32      I Say A Little Prayer                                       Aretha Franklin                    10/5/1968           10
+33      My Special Angel                                            Vogues, The                        10/12/1968          7
+34      Say It Loud - I'm Black And I'm Proud (Part 1)              James Brown                        10/19/1968          10
+35      Over You                                                    Gary Puckett                       10/26/1968          7
+36      Elenore                                                     Turtles, The                       11/2/1968           6
+37      White Room                                                  Cream                              11/9/1968           6
+38      I Love How You Love Me                                      Bobby Vinton                       12/14/1968          9
+39      Both Sides Now                                              Judy Collins                       12/21/1968          8

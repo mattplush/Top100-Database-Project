@@ -1,0 +1,64 @@
+8)
+ 
+Using the track’s YEAR field (not position dates!) to determine the year, what song titles
+were performed by more than one artist for songs appearing on the chart any time in 1969? 
+Show song title and artists, highest position, and date peaked for each, ordered by song title
+(so the same titles are next to each other) and track ‘highest’ position. (27 rows) Hint: you will
+need to reference the tracks table twice, using aliases (table1 as A, table1 as B), in the same
+query!
+
+
+----------- QUERY ----------
+
+
+SELECT 
+	DISTINCT A.tr_title AS Title, 
+      P.person AS Artist, 
+      MAX(po_pos) AS HighestPosition, 
+      MAX(po_date) AS PeakDate
+FROM 
+	tracks A, tracks B, position, people P
+WHERE
+	A.tr_title = B.tr_title AND 
+    	A.tr_artist_id <> B.tr_artist_id AND 
+    	A.tr_year = '1969' AND 
+    	B.tr_year = '1969' AND 
+    	A.tr_id = position.po_track_id AND
+    	B.tr_artist_id = P.p_id
+GROUP BY 
+	A.tr_title, P.person
+ORDER BY 
+	Title, HighestPosition;
+
+
+----------- TABLE ----------
+
+
+        Title                         Artist                        HighestPosition     PeakDate
+1       Abraham, Martin And John      Moms Mabley                   73                  8/9/1969
+2       Abraham, Martin And John      Smokey Robinson               89                  8/2/1969
+3       By The Time I Get To Phoenix  Mad Lads, The                 88                  10/18/1969
+4       By The Time I Get To Phoenix  Isaac Hayes                   90                  8/9/1969
+5       Cloud Nine                    Mongo Santamaria              45                  2/1/1969
+6       Cloud Nine                    Temptations, The              100                 3/22/1969
+7       Feeling Alright               Joe Cocker                    97                  12/6/1969
+8       Feeling Alright               Mongo Santamaria              100                 7/26/1969
+9       Galveston                     Roger Williams                87                  5/17/1969
+10      Galveston                     Glen Campbell                 100                 6/14/1969
+11      Good Morning Starshine        Strawberry Alarm Clock        83                  8/16/1969
+12      Good Morning Starshine        Oliver                        87                  5/31/1969
+13      Happy Heart                   Petula Clark                  75                  6/21/1969
+14      Happy Heart                   Andy Williams                 84                  5/10/1969
+15      I'll Never Fall In Love Again Burt Bacharach                86                  11/8/1969
+16      I'll Never Fall In Love Again Tom Jones                     98                  7/12/1969
+17      Lodi                          Al Wilson                     78                  5/24/1969
+18      Lodi                          Creedence Clearwater Revival  83                  10/4/1969
+19      Proud Mary                    Checkmates, Ltd., The         77                  6/14/1969
+20      Proud Mary                    Creedence Clearwater Revival  85                  11/8/1969
+21      Proud Mary                    Solomon Burke                 85                  11/8/1969
+22      The Weight                    Diana Ross and the Supremes   52                  4/5/1969
+23      The Weight                    Aretha Franklin               70                  10/11/1969
+24      These Eyes                    Jr. Walker & the All Stars    91                  7/5/1969
+25      These Eyes                    Guess Who, The                91                  1/17/1970
+26      Wichita Lineman               Sergio Mendes and Brasil '66  75                  2/8/1969
+27      Wichita Lineman               Glen Campbell                 99                  12/6/1969

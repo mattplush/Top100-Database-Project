@@ -1,0 +1,44 @@
+7)
+ 
+Which DISTINCT songs made the chart top 10 in July of 1969? (Note: we are looking for
+the position(s) <= 10 during that July time period; this is NOT the same as Highest
+Position<=10... the highest may have happened outside of July!) It should be 14 rows of
+unique songs. Show title and artist, ordered by artist.
+
+
+----------- QUERY ----------
+
+
+SELECT 
+	DISTINCT tr_title AS Title,
+    	person AS Artist
+FROM 
+	tracks, position, people
+WHERE 
+	tr_id = po_track_id AND 
+    	tr_artist_id = p_id AND
+    	tr_year = '1969' AND
+    	MONTH(po_date) = 7 AND
+    	po_pos <= 10  
+ORDER BY 
+	Artist;
+
+
+----------- TABLE ----------
+
+
+        Title                                   Artist
+1       Baby, I Love You                        Andy Kim
+2       Get Back                                Beatles, The
+3       The Ballad Of John And Yoko             Beatles, The
+4       Spinning Wheel                          Blood, Sweat & Tears
+5       Bad Moon Rising                         Creedence Clearwater Revival
+6       Love Theme From Romeo & Juliet          Henry Mancini, His Orchestra and Chorus
+7       What Does It Take (To Win Your Love)    Jr. Walker & the All Stars
+8       Too Busy Thinking About My Baby         Marvin Gaye
+9       Good Morning Starshine                  Oliver
+10      My Cherie Amour                         Stevie Wonder
+11      One                                     Three Dog Night
+12      Crystal Blue Persuasion                 Tommy James and the Shondells
+13      Color Him Father                        Winstons, The
+14      In The Year 2525 (Exordium & Terminus)  Zager & Evans

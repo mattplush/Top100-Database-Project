@@ -1,0 +1,62 @@
+3)
+
+What composers had their song reach number 1 for track year (not position year) 1972? 
+Order by composer name, showing composer name, song title, highest position (should all be
+1). 31 rows.
+
+
+----------- QUERY ----------
+
+
+SELECT
+	DISTINCT person AS Composer,
+    	tr_title AS Title,
+    	tr_year AS Year,
+	po_pos AS HighestPosition
+FROM 
+	position, tracks, wrote, people
+WHERE 
+	po_track_id = tr_id AND 
+    	tr_id = wr_track_id AND 
+    	wr_p_id = p_id AND 
+    	tr_year = '1972' AND  
+    	po_pos = 1
+ORDER BY 
+	Composer
+
+
+----------- TABLE ----------
+
+
+        Composer                 Title                                   Year    HighestPosition
+1       Al Bell (Alvertis Isbell)I'll Take You There                     1972    1
+2       Al Green                 Let's Stay Together                     1972    1
+3       Al Jackson               Let's Stay Together                     1972    1
+4       Anthony Newley           The Candy Man                           1972    1
+5       Barrett Strong           Papa Was A Rollin' Stone                1972    1
+6       Bill Withers             Lean On Me                              1972    1
+7       Cary Gilbert             Me And Mrs. Jones                       1972    1
+8       Chuck Berry              My Ding-A-Ling                          1972    1
+9       David Arkin              Black & White                           1972    1
+10      Dewey Bunnell            A Horse With No Name                    1972    1
+11      Don Black                Ben                                     1972    1
+12      Don McLean               American Pie (Parts 1 and 2)            1972    1
+13      Earl Robinson            Black & White                           1972    1
+14      Elliot Lurie             Brandy (You're A Fine Girl)             1972    1
+15      Eugene Record            Oh Girl                                 1972    1
+16      Ewan MacColl             The First Time Ever I Saw Your Face     1972    1
+17      Gilbert O'Sullivan       Alone Again (Naturally)                 1972    1
+18      Helen Reddy              I Am Woman                              1972    1
+19      Johnny Nash              I Can See Clearly Now                   1972    1
+20      Kenny Gamble             Me And Mrs. Jones                       1972    1
+21      Leon Huff                Me And Mrs. Jones                       1972    1
+22      Leslie Bricusse          The Candy Man                           1972    1
+23      Mac Davis                Baby Don't Get Hooked On Me             1972    1
+24      Neil Diamond             Song Sung Blue                          1972    1
+25      Neil Young               Heart Of Gold                           1972    1
+26      Norman Whitfield         Papa Was A Rollin' Stone                1972    1
+27      R. Burton                I Am Woman                              1972    1
+28      Thomas Evans             Without You                             1972    1
+29      Walter Scharf            Ben                                     1972    1
+30      William Peter Ham        Without You                             1972    1
+31      Willie Mitchell          Let's Stay Together                     1972    1
